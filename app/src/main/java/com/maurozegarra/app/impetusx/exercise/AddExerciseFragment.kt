@@ -1,16 +1,18 @@
-package com.maurozegarra.app.impetusx
+package com.maurozegarra.app.impetusx.exercise
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.maurozegarra.app.impetusx.R
 
-class WorkoutsFragment : Fragment() {
+class AddExerciseFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_workouts, container, false)
+        return inflater.inflate(R.layout.fragment_add_exercise, container, false)
     }
 }

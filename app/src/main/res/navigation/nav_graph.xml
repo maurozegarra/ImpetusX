@@ -3,21 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/workoutsFragment">
+    app:startDestination="@id/exerciseFragment">
 
     <fragment
-        android:id="@+id/workoutsFragment"
-        android:name="com.maurozegarra.app.impetusx.WorkoutsFragment"
-        android:label="WorkoutsFragment"
-        tools:layout="@layout/fragment_workouts">
+        android:id="@+id/exerciseFragment"
+        android:name="com.maurozegarra.app.impetusx.exercise.ExerciseFragment"
+        android:label="ExerciseFragment"
+        tools:layout="@layout/fragment_exercise" >
         <action
-            android:id="@+id/action_workoutsFragment_to_mainActivity"
-            app:destination="@id/mainActivity" />
+            android:id="@+id/action_exerciseFragment_to_addExerciseFragment"
+            app:destination="@id/addExerciseFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right"/>
     </fragment>
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.maurozegarra.app.impetusx.MainActivity"
-        android:label="fragment_workout"
-        tools:layout="@layout/fragment_workout" />
-
+    <fragment
+        android:id="@+id/addExerciseFragment"
+        android:name="com.maurozegarra.app.impetusx.exercise.AddExerciseFragment"
+        android:label="fragment_add_exercise"
+        tools:layout="@layout/fragment_add_exercise" />
 </navigation>
