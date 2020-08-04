@@ -8,17 +8,24 @@
     <fragment
         android:id="@+id/exerciseFragment"
         android:name="com.maurozegarra.app.impetusx.exercise.ExerciseFragment"
-        android:label="ExerciseFragment"
-        tools:layout="@layout/fragment_exercise" >
+        android:label="@string/exercises_label"
+        tools:layout="@layout/fragment_exercise">
         <action
             android:id="@+id/action_exerciseFragment_to_addExerciseFragment"
             app:destination="@id/addExerciseFragment"
             app:enterAnim="@anim/slide_in_right"
-            app:popEnterAnim="@anim/slide_in_right"/>
+            app:popEnterAnim="@anim/slide_in_right" />
     </fragment>
     <fragment
         android:id="@+id/addExerciseFragment"
-        android:name="com.maurozegarra.app.impetusx.exercise.AddExerciseFragment"
+        android:name="com.maurozegarra.app.impetusx.addexercise.AddExerciseFragment"
         android:label="fragment_add_exercise"
-        tools:layout="@layout/fragment_add_exercise" />
+        tools:layout="@layout/fragment_add_exercise">
+        <action
+            android:id="@+id/action_addExerciseFragment_to_exerciseFragment"
+            app:destination="@id/exerciseFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/exerciseFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

@@ -25,7 +25,7 @@ interface ExerciseDao {
     fun clear()
     */
 
-    @Query("SELECT * FROM exercise_table ORDER BY description ASC")
+    @Query("SELECT * FROM exercise_table ORDER BY exercise_title ASC")
     fun getAll(): LiveData<List<Exercise>>
 
     @Query("SELECT * FROM exercise_table ORDER BY exerciseId DESC LIMIT 1")

@@ -1,7 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Impetus X</string>
+    <string name="app_name">Pacha</string>
 
-    <string name="exercise_description">Exercise</string>
+    <string name="exercise_label">Exercises</string>
+    <string name="exercise_title">Exercise Title</string>
+    <string name="exercise_subtitle">Exercise Subtitle</string>
     <string name="exercise_type">Type</string>
     <string name="exercise_label_repetition">Repetitions</string>
     <string name="exercise_label_weight">Weight</string>
@@ -16,7 +18,6 @@
     <string name="workout_title">Workout Title</string>
     <string name="workout_description">Workout Description</string>
 
-    <string name="exercise_title">Exercise Title</string>
 
 
     <string name="title_cdata"><![CDATA[<h3>HERE IS YOUR EXERCISE DATA</h3>]]></string>
@@ -24,7 +25,8 @@
     <string name="end_time"><![CDATA[<b>End:</b>]]></string>
     <string name="repetition"><![CDATA[<b>Repetition:</b>]]></string>
     <string name="time_exercised"><![CDATA[<b>Hours:Minutes:Seconds</b>]]></string>
-
+    <string name="menu_save">Save</string>
+    <string name="exercises_label">Exercises</string>
 
     <string-array name="types">
         <item>Rest</item>

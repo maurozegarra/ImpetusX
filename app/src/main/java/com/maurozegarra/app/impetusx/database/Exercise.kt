@@ -16,8 +16,8 @@ data class Exercise(
     @ColumnInfo(name = "end_time_milli")
     var endTimeMilli: Long = startTimeMilli,
 
-    @ColumnInfo(name = "description")
-    var description: String = "",
+    @ColumnInfo(name = "exercise_title")
+    var exerciseTitle: String = "Exercise Title",
 
     @ColumnInfo(name = "repetition")
     var repetition: Int = -1,
