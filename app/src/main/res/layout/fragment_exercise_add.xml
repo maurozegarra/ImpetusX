@@ -6,14 +6,14 @@
     <data>
         <variable
             name="addExerciseViewModel"
-            type="com.maurozegarra.app.impetusx.addexercise.AddExerciseViewModel" />
+            type="com.maurozegarra.app.impetusx.exerciseadd.ExerciseAddViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        tools:context=".addexercise.AddExerciseFragment">
+        tools:context=".exerciseadd.ExerciseAddFragment">
 
         <EditText
             android:id="@+id/edit_exercise_title"
@@ -31,7 +31,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:entries="@array/type_array"
+            android:entries="@array/type_string_array"
+            android:onItemSelected="@{(parent, view, selection, id)-> addExerciseViewModel.setTypeSelected(selection)}"
+            android:selectedItemPosition="@{addExerciseViewModel.typeSelection}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_exercise_title" />

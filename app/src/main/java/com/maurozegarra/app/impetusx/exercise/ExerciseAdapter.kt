@@ -8,21 +8,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.maurozegarra.app.impetusx.database.Exercise
 import com.maurozegarra.app.impetusx.databinding.ListItemExerciseBinding
 
-class ExerciseAdapter : ListAdapter<Exercise, ExerciseAdapter.ViewHolder>(ExerciseDiffCallback()) {
+class ExerciseAdapter(val clickListener: ExerciseListener) :
+    ListAdapter<Exercise, ExerciseAdapter.ViewHolder>(ExerciseDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position), clickListener)
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(item, clickListener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
 
-    class ViewHolder private constructor(val binding: ListItemExerciseBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(val binding: ListItemExerciseBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Exercise) {
+        fun bind(item: Exercise, clickListener: ExerciseListener) {
             binding.exercise = item
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
 
@@ -44,4 +48,8 @@ class ExerciseAdapter : ListAdapter<Exercise, ExerciseAdapter.ViewHolder>(Exerci
             return oldItem == newItem
         }
     }
+}
+
+class ExerciseListener(val clickListener: (exerciseId: Long) -> Unit) {
+    fun onClick(exercise: Exercise) = clickListener(exercise.exerciseId)
 }

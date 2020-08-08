@@ -3,13 +3,19 @@ package com.maurozegarra.app.impetusx.exercise
 import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.databinding.BindingConversion
 import com.maurozegarra.app.impetusx.database.Exercise
 
 @BindingAdapter("exerciseTitle")
 fun TextView.setTitle(exercise: Exercise?) {
     exercise?.let {
         text = exercise.exerciseTitle
+    }
+}
+
+@BindingAdapter("exerciseType")
+fun TextView.setType(exercise: Exercise?) {
+    exercise?.let {
+        text = exercise.type.toString()
     }
 }
 

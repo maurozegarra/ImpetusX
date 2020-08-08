@@ -1,4 +1,4 @@
-package com.maurozegarra.app.impetusx.addexercise
+package com.maurozegarra.app.impetusx.exerciseadd
 
 import android.os.Bundle
 import android.view.*
@@ -9,32 +9,35 @@ import androidx.navigation.fragment.findNavController
 import com.maurozegarra.app.impetusx.R
 import com.maurozegarra.app.impetusx.database.Exercise
 import com.maurozegarra.app.impetusx.database.WorkoutDatabase
-import com.maurozegarra.app.impetusx.databinding.FragmentAddExerciseBinding
+import com.maurozegarra.app.impetusx.databinding.FragmentExerciseAddBinding
 import com.maurozegarra.app.impetusx.hideKeyboard
 
-class AddExerciseFragment : Fragment() {
-    private lateinit var viewModel: AddExerciseViewModel
-    private lateinit var binding: FragmentAddExerciseBinding
+class ExerciseAddFragment : Fragment() {
+    private lateinit var binding: FragmentExerciseAddBinding
+    private lateinit var viewModel: ExerciseAddViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentAddExerciseBinding.inflate(inflater, container, false)
+        binding = FragmentExerciseAddBinding.inflate(inflater, container, false)
 
         val application = requireNotNull(activity).application
         val dataSource = WorkoutDatabase.getInstance(application).exerciseDao
-        val viewModelFactory = AddExerciseViewModelFactory(dataSource)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(AddExerciseViewModel::class.java)
+        val viewModelFactory = ExerciseAddViewModelFactory(dataSource, application)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ExerciseAddViewModel::class.java)
 
         viewModel.navigateToExercise.observe(viewLifecycleOwner, Observer {
             if (it == true) {
-                findNavController().navigate(AddExerciseFragmentDirections.actionAddExerciseFragmentToExerciseFragment())
-                viewModel.doneNavigation()
+                findNavController().navigate(ExerciseAddFragmentDirections.actionAddExerciseFragmentToExerciseFragment())
+                viewModel.onExerciseNavigated()
             }
         })
 
         setHasOptionsMenu(true)
+
+        binding.addExerciseViewModel = viewModel
+        binding.lifecycleOwner = this
 
         return binding.root
     }

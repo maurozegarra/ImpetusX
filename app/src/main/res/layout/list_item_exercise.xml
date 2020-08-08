@@ -7,6 +7,10 @@
         <variable
             name="exercise"
             type="com.maurozegarra.app.impetusx.database.Exercise" />
+
+        <variable
+            name="clickListener"
+            type="com.maurozegarra.app.impetusx.exercise.ExerciseListener" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -19,6 +23,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{()->clickListener.onClick(exercise)}"
             android:padding="8dp">
 
             <TextView
@@ -41,6 +46,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/exercise_subtitle"
                 android:textAlignment="textStart"
+                app:exerciseType="@{exercise}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_exercise_title" />
 

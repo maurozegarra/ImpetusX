@@ -18,8 +18,6 @@
     <string name="workout_title">Workout Title</string>
     <string name="workout_description">Workout Description</string>
 
-
-
     <string name="title_cdata"><![CDATA[<h3>HERE IS YOUR EXERCISE DATA</h3>]]></string>
     <string name="start_time"><![CDATA[<b>Start:</b>]]></string>
     <string name="end_time"><![CDATA[<b>End:</b>]]></string>
@@ -27,6 +25,8 @@
     <string name="time_exercised"><![CDATA[<b>Hours:Minutes:Seconds</b>]]></string>
     <string name="menu_save">Save</string>
     <string name="exercises_label">Exercises</string>
+
+    <string name="close">Close</string>
 
     <string-array name="types">
         <item>Rest</item>

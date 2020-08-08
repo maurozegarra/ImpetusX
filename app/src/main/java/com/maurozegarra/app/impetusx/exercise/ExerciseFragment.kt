@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.maurozegarra.app.impetusx.R
 import com.maurozegarra.app.impetusx.database.WorkoutDatabase
 import com.maurozegarra.app.impetusx.databinding.FragmentExerciseBinding
@@ -27,17 +28,11 @@ class ExerciseFragment : Fragment() {
         val viewModel =
             ViewModelProvider(this, viewModelFactory).get(ExerciseViewModel::class.java)
 
-        viewModel.navigateToAddExercise.observe(viewLifecycleOwner, Observer {
-            if (it == true) {
-                findNavController().navigate(ExerciseFragmentDirections.actionExerciseFragmentToAddExerciseFragment())
-                viewModel.doneNavigation()
-            }
+        val adapter = ExerciseAdapter(ExerciseListener { exerciseId ->
+            // Toast.makeText(context, "$exerciseId", Toast.LENGTH_SHORT).show()
+            viewModel.onExerciseClicked(exerciseId)
         })
 
-        binding.exerciseViewModel = viewModel
-        binding.lifecycleOwner = this
-
-        val adapter = ExerciseAdapter()
         binding.recyclerExercise.adapter = adapter
 
         viewModel.exercises.observe(viewLifecycleOwner, Observer {
@@ -45,6 +40,25 @@ class ExerciseFragment : Fragment() {
                 adapter.submitList(it)
             }
         })
+
+        viewModel.navigateToAddExercise.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
+                findNavController().navigate(ExerciseFragmentDirections.actionExerciseFragmentToAddExerciseFragment())
+                viewModel.onExerciseAddNavigated()
+            }
+        })
+
+        viewModel.navigateToExerciseDetail.observe(viewLifecycleOwner, Observer { exercise ->
+            exercise?.let {
+                findNavController().navigate(ExerciseFragmentDirections.actionExerciseFragmentToExerciseDetailFragment(exercise))
+                viewModel.onExerciseDetailNavigated()
+            }
+        })
+
+        binding.exerciseViewModel = viewModel
+        binding.lifecycleOwner = this
+
+        binding.recyclerExercise.layoutManager = LinearLayoutManager(activity)
 
         setLabelFragment()
 

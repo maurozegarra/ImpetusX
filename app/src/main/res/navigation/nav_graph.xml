@@ -15,17 +15,37 @@
             app:destination="@id/addExerciseFragment"
             app:enterAnim="@anim/slide_in_right"
             app:popEnterAnim="@anim/slide_in_right" />
+        <action
+            android:id="@+id/action_exerciseFragment_to_exerciseDetailFragment"
+            app:destination="@id/exerciseDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right" />
     </fragment>
     <fragment
         android:id="@+id/addExerciseFragment"
-        android:name="com.maurozegarra.app.impetusx.addexercise.AddExerciseFragment"
+        android:name="com.maurozegarra.app.impetusx.exerciseadd.ExerciseAddFragment"
         android:label="fragment_add_exercise"
-        tools:layout="@layout/fragment_add_exercise">
+        tools:layout="@layout/fragment_exercise_add">
         <action
             android:id="@+id/action_addExerciseFragment_to_exerciseFragment"
             app:destination="@id/exerciseFragment"
             app:launchSingleTop="false"
             app:popUpTo="@id/exerciseFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseDetailFragment"
+        android:name="com.maurozegarra.app.impetusx.exercisedetail.ExerciseDetailFragment"
+        android:label="ExerciseDetailFragment"
+        tools:layout="@layout/fragment_exercise_detail">
+        <argument
+            android:name="exerciseId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_exerciseDetailFragment_to_exerciseFragment"
+            app:destination="@id/exerciseFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/exerciseFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>
