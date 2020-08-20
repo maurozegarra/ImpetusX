@@ -1,7 +1,11 @@
 package com.maurozegarra.app.impetusx.exerciseadd
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +19,7 @@ import com.maurozegarra.app.impetusx.hideKeyboard
 class ExerciseAddFragment : Fragment() {
     private lateinit var binding: FragmentExerciseAddBinding
     private lateinit var viewModel: ExerciseAddViewModel
+    private var selectedType = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,29 +39,71 @@ class ExerciseAddFragment : Fragment() {
             }
         })
 
-        setHasOptionsMenu(true)
+        ArrayAdapter.createFromResource(
+            application,
+            R.array.exercise_type_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.spinnerType.adapter = adapter
+        }
 
-        binding.addExerciseViewModel = viewModel
+        binding.spinnerType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                selectedType = binding.spinnerType.selectedItem.toString()
+                //Toast.makeText(context, selectedType, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        binding.pickerRepetition.minValue = 1
+        binding.pickerRepetition.maxValue = 100
+        binding.pickerWeight.minValue = 0
+        binding.pickerWeight.maxValue = 100
+
+        binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
+        setHasOptionsMenu(true)
         return binding.root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.save_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.save_exercise -> save()
         }
-        return super.onOptionsItemSelected(item)
+        return true
     }
 
     private fun save() {
         val exercise = Exercise()
-        exercise.exerciseTitle = binding.editExerciseTitle.text.toString()
+
+        val exerciseName = binding.editExerciseName.text.toString()
+
+        // todo: dónde van las validaciones?
+        if (TextUtils.isEmpty(exerciseName)) {
+            Toast.makeText(context, R.string.empty_name_not_saved, Toast.LENGTH_LONG).show()
+            return
+        }
+
+        exercise.exerciseName = exerciseName
+        exercise.type = selectedType
+
+        exercise.repetition = binding.pickerRepetition.value
+        exercise.weight = binding.pickerWeight.value
+        exercise.timerSecond = binding.editTimer.text.toString().toInt()
+
         viewModel.save(exercise)
 
         hideKeyboard()

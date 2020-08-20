@@ -8,14 +8,35 @@ import com.maurozegarra.app.impetusx.database.Exercise
 @BindingAdapter("exerciseTitle")
 fun TextView.setTitle(exercise: Exercise?) {
     exercise?.let {
-        text = exercise.exerciseTitle
+        text = exercise.exerciseName
     }
 }
 
 @BindingAdapter("exerciseType")
 fun TextView.setType(exercise: Exercise?) {
     exercise?.let {
-        text = exercise.type.toString()
+        text = exercise.type
+    }
+}
+
+@BindingAdapter("exerciseTimer")
+fun TextView.setTimer(exercise: Exercise?) {
+    exercise?.let {
+        text = exercise.timerSecond.toString()
+    }
+}
+
+@BindingAdapter("exerciseRepetition")
+fun TextView.setRepetition(exercise: Exercise?) {
+    exercise?.let {
+        text = exercise.repetition.toString()
+    }
+}
+
+@BindingAdapter("exerciseWeight")
+fun TextView.setWeight(exercise: Exercise?) {
+    exercise?.let {
+        text = exercise.weight.toString()
     }
 }
 

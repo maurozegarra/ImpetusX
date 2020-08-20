@@ -29,6 +29,7 @@
         <action
             android:id="@+id/action_addExerciseFragment_to_exerciseFragment"
             app:destination="@id/exerciseFragment"
+            app:enterAnim="@anim/slide_in_right"
             app:launchSingleTop="false"
             app:popUpTo="@id/exerciseFragment"
             app:popUpToInclusive="true" />
@@ -44,8 +45,9 @@
         <action
             android:id="@+id/action_exerciseDetailFragment_to_exerciseFragment"
             app:destination="@id/exerciseFragment"
+            app:enterAnim="@anim/slide_in_right"
             app:launchSingleTop="false"
             app:popUpTo="@id/exerciseFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

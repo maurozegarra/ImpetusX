@@ -29,7 +29,7 @@ class ExerciseFragment : Fragment() {
             ViewModelProvider(this, viewModelFactory).get(ExerciseViewModel::class.java)
 
         val adapter = ExerciseAdapter(ExerciseListener { exerciseId ->
-            // Toast.makeText(context, "$exerciseId", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, "$exerciseId", Toast.LENGTH_SHORT).show()
             viewModel.onExerciseClicked(exerciseId)
         })
 

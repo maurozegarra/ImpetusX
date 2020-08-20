@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!--Text values of type of exercises -->
-    <string-array name="type_string_array">
+	<!--Text values of type of exercise -->
+    <string-array name="exercise_type_array">
         <item>Work</item>
         <item>Rest</item>
     </string-array>
-
-    <integer-array name="type_array">
-        <item>1</item>
-        <item>0</item>
-    </integer-array>
 </resources>

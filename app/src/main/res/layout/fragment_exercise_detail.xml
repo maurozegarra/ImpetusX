@@ -16,7 +16,7 @@
         tools:context=".exercisedetail.ExerciseDetailFragment">
 
         <TextView
-            android:id="@+id/text_exercise_title"
+            android:id="@+id/text_exercise_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"

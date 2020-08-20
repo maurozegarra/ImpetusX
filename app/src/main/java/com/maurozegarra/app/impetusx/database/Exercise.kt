@@ -8,32 +8,37 @@ import androidx.room.PrimaryKey
 data class Exercise(
 
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "exercise_id")
     var exerciseId: Long = 0L,
 
-    @ColumnInfo(name = "start_time_milli")
-    val startTimeMilli: Long = System.currentTimeMillis(),
+    @ColumnInfo(name = "exercise_name")
+    var exerciseName: String = "Exercise Name",
 
-    @ColumnInfo(name = "end_time_milli")
-    var endTimeMilli: Long = startTimeMilli,
+    var type: String = "", // work, rest
 
-    @ColumnInfo(name = "exercise_title")
-    var exerciseTitle: String = "Exercise Title",
-
-    @ColumnInfo(name = "repetition")
-    var repetition: Int = -1,
-
-    @ColumnInfo(name = "time_hold_second")
-    var timeHoldSecond: Int = -1,
-
-    @ColumnInfo(name = "type")
-    var type: Int = -1, // work, rest
-
+    // later define behavior
     @ColumnInfo(name = "auto_pause")
     var autoPause: Boolean = false,
 
+    // must!
     @ColumnInfo(name = "timer_second")
     var timerSecond: Int = -1,
 
-    @ColumnInfo(name = "condition")
-    var condition: Int = -1 // "off", "don't run", "run only"
+    // later
+    var condition: Int = -1, // "off", "don't run", "run only"
+
+    // must!
+    var repetition: Int = -1,
+
+    // must!
+    var weight: Int = -1
+
+//    @ColumnInfo(name = "start_time_milli")
+//    val startTimeMilli: Long = System.currentTimeMillis(),
+
+//    @ColumnInfo(name = "end_time_milli")
+//    var endTimeMilli: Long = startTimeMilli,
+
+//    @ColumnInfo(name = "time_hold_second")
+//    var timeHoldSecond: Int = -1,
 )

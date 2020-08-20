@@ -2,12 +2,12 @@
     <string name="app_name">Pacha</string>
 
     <string name="exercise_label">Exercises</string>
-    <string name="exercise_title">Exercise Title</string>
-    <string name="exercise_subtitle">Exercise Subtitle</string>
+    <string name="exercise_name">Exercise Name</string>
+    <string name="exercise_subtitle">Exercise Time</string>
     <string name="exercise_type">Type</string>
     <string name="exercise_label_repetition">Repetitions</string>
     <string name="exercise_label_weight">Weight</string>
-    <string name="exercise_timer">Timer</string>
+    <string name="exercise_timer">1:15</string>
 
     <string name="exercise_repetition">12x</string>
 
@@ -27,6 +27,8 @@
     <string name="exercises_label">Exercises</string>
 
     <string name="close">Close</string>
+
+    <string name="empty_name_not_saved">Exercise not saved because name is empty.</string>
 
     <string-array name="types">
         <item>Rest</item>

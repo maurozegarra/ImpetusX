@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 // if you have more than one table, add them all to this list
-@Database(entities = [Exercise::class], version = 1, exportSchema = false)
+@Database(entities = [Exercise::class], version = 2, exportSchema = false)
 abstract class WorkoutDatabase : RoomDatabase() {
 
     abstract val exerciseDao: ExerciseDao

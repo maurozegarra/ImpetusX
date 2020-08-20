@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="addExerciseViewModel"
+            name="viewModel"
             type="com.maurozegarra.app.impetusx.exerciseadd.ExerciseAddViewModel" />
     </data>
 
@@ -16,12 +16,12 @@
         tools:context=".exerciseadd.ExerciseAddFragment">
 
         <EditText
-            android:id="@+id/edit_exercise_title"
+            android:id="@+id/edit_exercise_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="@string/exercise_title"
-            android:hint="@string/exercise_title"
-            android:inputType="text"
+            android:autofillHints="@string/exercise_name"
+            android:hint="@string/exercise_name"
+            android:inputType="textCapSentences"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,12 +31,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:entries="@array/type_string_array"
-            android:onItemSelected="@{(parent, view, selection, id)-> addExerciseViewModel.setTypeSelected(selection)}"
-            android:selectedItemPosition="@{addExerciseViewModel.typeSelection}"
+            android:entries="@array/exercise_type_array"
+            android:spinnerMode="dialog"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_exercise_title" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_exercise_name" />
 
         <TextView
             android:id="@+id/text_repetition"
@@ -82,7 +81,7 @@
             android:layout_height="wrap_content"
             android:autofillHints="@string/exercise_timer"
             android:hint="@string/exercise_timer"
-            android:inputType="text"
+            android:inputType="time"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/picker_weight" />

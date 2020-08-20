@@ -27,28 +27,58 @@
             android:padding="8dp">
 
             <TextView
-                android:id="@+id/text_exercise_title"
+                android:id="@+id/text_exercise_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:maxLines="1"
-                android:text=""
+                android:maxLines="2"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:exerciseTitle="@{exercise}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="@string/exercise_title" />
+                tools:text="@string/exercise_name" />
 
             <TextView
-                android:id="@+id/text_exercise_subtitle"
+                android:id="@+id/text_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/exercise_subtitle"
-                android:textAlignment="textStart"
+                android:paddingEnd="16dp"
                 app:exerciseType="@{exercise}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_exercise_title" />
+                app:layout_constraintTop_toBottomOf="@+id/text_exercise_name"
+                tools:ignore="RtlSymmetry"
+                tools:text="Work" />
+
+            <TextView
+                android:id="@+id/text_exercise_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exercise_timer"
+                android:textAlignment="textStart"
+                app:exerciseTimer="@{exercise}"
+                app:layout_constraintStart_toEndOf="@+id/text_type"
+                app:layout_constraintTop_toBottomOf="@+id/text_exercise_name" />
+
+            <TextView
+                android:id="@+id/text_repetition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="16dp"
+                app:exerciseRepetition="@{exercise}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_type"
+                tools:ignore="RtlSymmetry"
+                tools:text="12x" />
+
+            <TextView
+                android:id="@+id/text_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:exerciseWeight="@{exercise}"
+                app:layout_constraintStart_toEndOf="@+id/text_repetition"
+                app:layout_constraintTop_toBottomOf="@+id/text_exercise_timer"
+                tools:text="45 Kg" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

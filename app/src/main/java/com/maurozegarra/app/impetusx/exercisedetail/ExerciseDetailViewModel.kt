@@ -10,9 +10,7 @@ import com.maurozegarra.app.impetusx.database.ExerciseDao
 class ExerciseDetailViewModel(exerciseId: Long, exerciseDao: ExerciseDao) :
     ViewModel() {
 
-    private val exercise = MediatorLiveData<Exercise>()
-
-    fun getExercise() = exercise
+    val exercise = MediatorLiveData<Exercise>()
 
     init {
         exercise.addSource(exerciseDao.getExerciseWithId(exerciseId), exercise::setValue)
