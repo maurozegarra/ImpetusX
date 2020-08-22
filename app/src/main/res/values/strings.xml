@@ -4,9 +4,14 @@
     <string name="exercise_label">Exercises</string>
     <string name="exercise_name">Exercise Name</string>
     <string name="exercise_subtitle">Exercise Time</string>
-    <string name="exercise_type">Type</string>
-    <string name="exercise_label_repetition">Repetitions</string>
-    <string name="exercise_label_weight">Weight</string>
+    <string name="exercise_label_type">Type: %s</string>
+    <string name="exercise_label_timer">Timer: %d</string>
+    <string name="exercise_label_repetition">%dx</string>
+    <string name="exercise_label_weight">%d kg</string>
+
+    <string name="exercise_add_label_repetition">Repetition</string>
+    <string name="exercise_add_label_weight">Weight</string>
+
     <string name="exercise_timer">1:15</string>
 
     <string name="exercise_repetition">12x</string>

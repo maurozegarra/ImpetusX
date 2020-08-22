@@ -55,7 +55,7 @@ class ExerciseAddFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                selectedType = binding.spinnerType.selectedItem.toString()
+                selectedType = binding.spinnerType.selectedItem.toString().trim()
                 //Toast.makeText(context, selectedType, Toast.LENGTH_SHORT).show()
             }
 
@@ -91,7 +91,7 @@ class ExerciseAddFragment : Fragment() {
 
         val exerciseName = binding.editExerciseName.text.toString()
 
-        // todo: dónde van las validaciones?
+        // todo: where go validations?
         if (TextUtils.isEmpty(exerciseName)) {
             Toast.makeText(context, R.string.empty_name_not_saved, Toast.LENGTH_LONG).show()
             return
@@ -102,7 +102,8 @@ class ExerciseAddFragment : Fragment() {
 
         exercise.repetition = binding.pickerRepetition.value
         exercise.weight = binding.pickerWeight.value
-        exercise.timerSecond = binding.editTimer.text.toString().toInt()
+        // todo: validate!
+        exercise.timerSecond = binding.editTimer.text.toString().trim().toInt()
 
         viewModel.save(exercise)
 
