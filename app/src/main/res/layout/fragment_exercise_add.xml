@@ -15,16 +15,22 @@
         android:padding="16dp"
         tools:context=".exerciseadd.ExerciseAddFragment">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edit_exercise_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="@string/exercise_name"
+            android:layout_margin="4dp"
             android:hint="@string/exercise_name"
             android:inputType="textCapSentences"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
             android:id="@+id/spinner_type"
@@ -81,7 +87,7 @@
             android:layout_height="wrap_content"
             android:autofillHints="@string/exercise_timer"
             android:hint="@string/exercise_timer"
-            android:inputType="time"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/picker_weight" />

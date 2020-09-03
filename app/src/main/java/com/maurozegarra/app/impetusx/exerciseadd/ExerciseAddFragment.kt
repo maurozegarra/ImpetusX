@@ -89,7 +89,7 @@ class ExerciseAddFragment : Fragment() {
     private fun save() {
         val exercise = Exercise()
 
-        val exerciseName = binding.editExerciseName.text.toString()
+        val exerciseName = binding.editExerciseName.editText?.text.toString()
 
         // todo: where go validations?
         if (TextUtils.isEmpty(exerciseName)) {

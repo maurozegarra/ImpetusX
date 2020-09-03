@@ -13,13 +13,17 @@
         <action
             android:id="@+id/action_exerciseFragment_to_addExerciseFragment"
             app:destination="@id/addExerciseFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:popEnterAnim="@anim/slide_in_right" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_exerciseFragment_to_exerciseDetailFragment"
             app:destination="@id/exerciseDetailFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:popEnterAnim="@anim/slide_in_right" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/addExerciseFragment"
@@ -29,8 +33,8 @@
         <action
             android:id="@+id/action_addExerciseFragment_to_exerciseFragment"
             app:destination="@id/exerciseFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:launchSingleTop="false"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
             app:popUpTo="@id/exerciseFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -45,7 +49,8 @@
         <action
             android:id="@+id/action_exerciseDetailFragment_to_exerciseFragment"
             app:destination="@id/exerciseFragment"
-            app:enterAnim="@anim/slide_in_right"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
             app:launchSingleTop="false"
             app:popUpTo="@id/exerciseFragment"
             app:popUpToInclusive="true" />
